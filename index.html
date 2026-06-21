@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de Estudio — Inglés Intermedio Intensivo EFT</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #4f46e5;
+  --primary-light: #818cf8;
+  --secondary: #7c3aed;
+  --accent: #06b6d4;
+  --danger: #ef4444;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --written-color: #4f46e5;
+  --oral-color: #0891b2;
+  --listening-bg: #ede9fe;
+  --reading-bg:   #dbeafe;
+  --writing-bg:   #ffe4e6;
+  --speaking-bg:  #d1fae5;
+  --grammar-bg:   #fef9c3;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #06b6d4 100%);
+  min-height: 100vh;
+  padding: 30px 15px;
+  color: var(--text);
+}
+
+.container {
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(79,70,229,0.25);
+  max-width: 920px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  padding: 44px 40px 36px;
+  text-align: center;
+  color: white;
+}
+.header .eyebrow {
+  font-size: 0.72em;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 14px;
+}
+.header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.3em;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+.header .subtitle { opacity: 0.85; font-size: 1em; font-weight: 300; margin-bottom: 28px; }
+
+/* WEIGHT SPLIT BANNER */
+.weight-banner {
+  display: flex;
+  gap: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  max-width: 520px;
+  margin: 0 auto;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.weight-half {
+  flex: 1;
+  padding: 14px 18px;
+  text-align: center;
+}
+.weight-half.written { background: rgba(255,255,255,0.18); }
+.weight-half.oral    { background: rgba(255,255,255,0.10); border-left: 1px solid rgba(255,255,255,0.2); }
+.weight-half .wh-label { font-size: 0.72em; letter-spacing: 2px; text-transform: uppercase; opacity: 0.75; margin-bottom: 4px; }
+.weight-half .wh-pct   { font-family: 'DM Serif Display', serif; font-size: 2em; line-height: 1; }
+.weight-half .wh-sub   { font-size: 0.75em; opacity: 0.7; margin-top: 3px; }
+.weight-note { font-size: 0.75em; opacity: 0.6; margin-top: 12px; }
+
+/* NAV BAR */
+.nav-bar {
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Row 1: group labels */
+.nav-labels {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-labels::-webkit-scrollbar { display: none; }
+
+.nav-label-cell {
+  padding: 5px 14px;
+  font-size: 0.68em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+}
+.nav-label-cell.written {
+  background: #f0f4ff;
+  color: var(--written-color);
+  border-right: 1px solid #c7d2fe;
+  border-left: 1px solid #c7d2fe;
+}
+.nav-label-cell.oral {
+  background: #ecfeff;
+  color: var(--oral-color);
+  border-right: 1px solid #a5f3fc;
+  border-left: 1px solid #a5f3fc;
+}
+.nav-label-spacer { flex: 1; }
+
+/* Row 2: tab buttons */
+.nav-tabs {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+
+.nav-btn {
+  flex-shrink: 0;
+  padding: 10px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8em;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--muted);
+  border-bottom: 3px solid transparent;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.nav-btn:hover { color: var(--primary); background: #f1f5f9; }
+.nav-btn.active { color: var(--primary); border-bottom-color: var(--primary); background: white; }
+
+/* Written group — persistent tint */
+.nav-btn.group-written {
+  background: #f0f4ff;
+  color: #6366f1;
+}
+.nav-btn.group-written:hover { background: #e0e7ff; }
+.nav-btn.group-written.active {
+  background: white;
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* Written group — intensified when group is active */
+.written-active .nav-btn.group-written:not(.active) {
+  background: #e0e7ff;
+  color: var(--primary);
+}
+
+/* Oral group — persistent tint */
+.nav-btn.group-oral {
+  background: #ecfeff;
+  color: #0891b2;
+}
+.nav-btn.group-oral:hover { background: #cffafe; }
+.nav-btn.group-oral.active {
+  background: white;
+  color: #0891b2;
+  border-bottom-color: #0891b2;
+}
+
+/* Oral group — intensified when group is active */
+.oral-active .nav-btn.group-oral:not(.active) {
+  background: #cffafe;
+  color: #0891b2;
+}
+
+/* Separator between groups */
+.nav-sep {
+  width: 1px;
+  background: var(--border);
+  margin: 6px 0;
+  flex-shrink: 0;
+}
+
+/* CONTENT */
+.content { padding: 36px 40px; }
+
+/* TAB PANELS */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* INTRO BOX */
+.intro-box {
+  background: linear-gradient(135deg, #f0f4ff, #faf5ff);
+  border: 1px solid #c4b5fd;
+  border-left: 4px solid var(--primary);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  font-size: 0.92em;
+  line-height: 1.75;
+  color: #3730a3;
+}
+
+/* SECTION TITLE */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.section-icon {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4em;
+  flex-shrink: 0;
+}
+.icon-listening { background: var(--listening-bg); }
+.icon-reading   { background: var(--reading-bg); }
+.icon-writing   { background: var(--writing-bg); }
+.icon-speaking  { background: var(--speaking-bg); }
+.icon-grammar   { background: var(--grammar-bg); }
+.icon-overview  { background: #e0f2fe; }
+.icon-calc      { background: #fce7f3; }
+
+.section-title h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.6em;
+  color: var(--text);
+  line-height: 1.2;
+}
+.section-title .pts-badge {
+  margin-left: auto;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 0.82em;
+  font-weight: 700;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+/* ACCORDION */
+.accordion { margin-bottom: 12px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 20px;
+  background: #f8fafc;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.93em;
+  font-weight: 600;
+  color: var(--text);
+  transition: background 0.18s;
+}
+.accordion-header:hover { background: #f1f5f9; }
+.accordion-header.open { background: white; border-bottom: 1px solid var(--border); }
+.accordion-tag {
+  font-size: 0.7em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.tag-listening { background: var(--listening-bg); color: var(--secondary); }
+.tag-reading   { background: var(--reading-bg);   color: #1d4ed8; }
+.tag-writing   { background: var(--writing-bg);   color: #be123c; }
+.tag-speaking  { background: var(--speaking-bg);  color: #065f46; }
+.tag-grammar   { background: var(--grammar-bg);   color: #92400e; }
+.tag-tip       { background: #e0f2fe;              color: #0369a1; }
+
+.accordion-chevron { margin-left: auto; font-size: 0.85em; color: var(--muted); transition: transform 0.25s; flex-shrink: 0; }
+.accordion-header.open .accordion-chevron { transform: rotate(180deg); }
+
+.accordion-body { display: none; padding: 22px 24px; background: white; font-size: 0.92em; line-height: 1.75; color: var(--text); }
+.accordion-body.open { display: block; }
+
+/* CONTENT ELEMENTS */
+.acc-p { margin-bottom: 14px; }
+.acc-p:last-child { margin-bottom: 0; }
+
+.tip-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 0.9em;
+  color: #1e40af;
+  line-height: 1.65;
+}
+.tip-box .tip-label { font-weight: 700; text-transform: uppercase; font-size: 0.7em; letter-spacing: 1px; margin-bottom: 6px; color: var(--accent); }
+
+.warning-box {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-left: 4px solid var(--warning);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 0.9em;
+  color: #92400e;
+  line-height: 1.65;
+}
+.warning-box .tip-label { color: var(--warning); font-weight: 700; text-transform: uppercase; font-size: 0.7em; letter-spacing: 1px; margin-bottom: 6px; }
+
+.example-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+  font-size: 0.9em;
+  line-height: 1.7;
+}
+.example-box .ex-label { font-weight: 700; font-size: 0.7em; letter-spacing: 1px; text-transform: uppercase; color: var(--success); margin-bottom: 6px; }
+.example-box .ex-line { margin-bottom: 4px; }
+.example-box .ex-line:last-child { margin-bottom: 0; }
+.ex-good { color: #15803d; font-weight: 600; }
+.ex-bad  { color: #b91c1c; text-decoration: line-through; }
+.ex-note { color: var(--muted); font-style: italic; }
+
+.steps-list { counter-reset: step-counter; list-style: none; margin: 10px 0 14px; }
+.steps-list li { counter-increment: step-counter; display: flex; gap: 12px; margin-bottom: 10px; align-items: flex-start; }
+.steps-list li::before {
+  content: counter(step-counter);
+  background: var(--primary); color: white;
+  font-size: 0.75em; font-weight: 700;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+
+.bullet-list { list-style: none; margin: 10px 0 14px; padding: 0; }
+.bullet-list li { display: flex; gap: 10px; margin-bottom: 8px; align-items: flex-start; line-height: 1.6; }
+.bullet-list li::before { content: '→'; color: var(--primary); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+/* TABLES */
+.grammar-table { width: 100%; border-collapse: collapse; font-size: 0.88em; margin: 14px 0; }
+.grammar-table th { background: #f1f5f9; padding: 9px 14px; text-align: left; font-weight: 700; color: var(--text); border-bottom: 2px solid var(--border); }
+.grammar-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; }
+.grammar-table tr:last-child td { border-bottom: none; }
+.grammar-table tr:hover td { background: #fafafa; }
+.grammar-table .form { font-family: 'DM Serif Display', serif; color: var(--secondary); }
+.grammar-table .use  { color: var(--muted); font-size: 0.9em; }
+
+.rubric-table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin: 14px 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+.rubric-table th { background: linear-gradient(135deg, #f0fdf4, #dcfce7); padding: 10px 14px; text-align: left; font-weight: 700; color: #065f46; border-bottom: 1px solid #86efac; }
+.rubric-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; }
+.rubric-table tr:last-child td { border-bottom: none; font-weight: 700; }
+.rubric-table .pts { text-align: center; font-weight: 700; color: var(--primary); }
+
+/* OVERVIEW CARDS */
+.exam-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 22px 0;
+}
+.exam-half {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.exam-half-header {
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.exam-half-header.written { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+.exam-half-header.oral    { background: linear-gradient(135deg, #cffafe, #a5f3fc); }
+.exam-half-header h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05em;
+  color: var(--text);
+}
+.exam-half-header .big-pct {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8em;
+  color: var(--secondary);
+  line-height: 1;
+}
+.exam-half-header.oral .big-pct { color: #0891b2; }
+.exam-half-body { padding: 14px 18px; }
+.exam-half-body ul { list-style: none; padding: 0; }
+.exam-half-body ul li {
+  font-size: 0.87em;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+.exam-half-body ul li:last-child { border-bottom: none; }
+.exam-half-body ul li strong { color: var(--text); }
+
+.time-block {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin: 18px 0;
+}
+.time-block h4 { font-family: 'DM Serif Display', serif; font-size: 1.05em; color: var(--secondary); margin-bottom: 12px; }
+.time-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 0.9em; }
+.time-row:last-child { border-bottom: none; font-weight: 700; }
+.time-row .tr-time { color: var(--secondary); font-weight: 600; }
+
+.part-divider { border: none; border-top: 2px dashed var(--border); margin: 26px 0; }
+
+/* ── CALCULADORA ── */
+.calc-card {
+  background: linear-gradient(135deg, #fdf4ff, #fae8ff);
+  border: 1px solid #e879f9;
+  border-radius: 16px;
+  padding: 28px;
+  margin: 22px 0;
+}
+.calc-card h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3em;
+  color: #701a75;
+  margin-bottom: 6px;
+}
+.calc-card .calc-sub { font-size: 0.85em; color: #9333ea; margin-bottom: 22px; }
+
+.calc-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.calc-field label {
+  display: block;
+  font-size: 0.78em;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.calc-field .field-pct {
+  font-size: 0.7em;
+  font-weight: 400;
+  color: var(--primary);
+  text-transform: none;
+  letter-spacing: 0;
+  display: block;
+  margin-top: 1px;
+}
+.calc-field input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #e9d5ff;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--text);
+  background: white;
+  transition: border-color 0.2s;
+  -moz-appearance: textfield;
+}
+.calc-field input[type="number"]::-webkit-outer-spin-button,
+.calc-field input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.calc-field input[type="number"]:focus { outline: none; border-color: var(--secondary); }
+
+.calc-formula {
+  background: white;
+  border: 1px solid #e9d5ff;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.82em;
+  color: var(--muted);
+  margin-bottom: 18px;
+  line-height: 1.6;
+  font-family: monospace;
+}
+.calc-formula strong { color: var(--secondary); }
+
+.calc-result {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.calc-result-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3.2em;
+  line-height: 1;
+  color: var(--primary);
+  min-width: 90px;
+  transition: color 0.3s;
+}
+.calc-result-info { flex: 1; min-width: 160px; }
+.calc-result-label { font-size: 0.82em; color: var(--muted); margin-bottom: 4px; }
+.calc-result-msg { font-weight: 700; font-size: 0.95em; color: var(--text); }
+.calc-breakdown {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.calc-bd-item {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 0.82em;
+}
+.calc-bd-item .bd-label { color: var(--muted); margin-bottom: 3px; }
+.calc-bd-item .bd-val { font-weight: 700; color: var(--text); font-size: 1.05em; }
+.calc-bd-item .bd-contribution { font-size: 0.8em; color: var(--primary); margin-top: 2px; }
+
+/* CHECKLIST */
+.checklist-section { margin-bottom: 26px; }
+.checklist-section h3 { font-family: 'DM Serif Display', serif; font-size: 1.1em; color: var(--text); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px dashed var(--border); }
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  margin-bottom: 7px;
+  background: #fafafa;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.18s;
+  user-select: none;
+}
+.check-item:hover { background: #f1f5f9; }
+.check-item.checked { background: #f0fdf4; border-color: #6ee7b7; }
+.check-item input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--success); flex-shrink: 0; margin-top: 2px; cursor: pointer; }
+.check-item .ci-text { font-size: 0.9em; line-height: 1.5; color: var(--text); flex: 1; }
+.check-item.checked .ci-text { color: var(--muted); text-decoration: line-through; }
+.check-item .ci-badge { margin-left: auto; font-size: 0.7em; font-weight: 700; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
+.badge-l { background: var(--listening-bg); color: var(--secondary); }
+.badge-r { background: var(--reading-bg);   color: #1d4ed8; }
+.badge-w { background: var(--writing-bg);   color: #be123c; }
+.badge-s { background: var(--speaking-bg);  color: #065f46; }
+.badge-g { background: var(--grammar-bg);   color: #92400e; }
+
+.progress-bar-wrap { background: var(--bg); border-radius: 12px; padding: 14px 18px; margin-bottom: 22px; display: flex; align-items: center; gap: 14px; }
+.progress-bar-track { flex: 1; height: 10px; background: var(--border); border-radius: 10px; overflow: hidden; }
+.progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 10px; transition: width 0.4s ease; width: 0%; }
+.progress-label { font-size: 0.83em; font-weight: 600; color: var(--muted); white-space: nowrap; }
+
+/* RESPONSIVE */
+@media (max-width: 680px) {
+  .content { padding: 22px 18px; }
+  .header { padding: 28px 20px 22px; }
+  .header h1 { font-size: 1.7em; }
+  .exam-split { grid-template-columns: 1fr; }
+  .calc-inputs { grid-template-columns: 1fr; }
+  .calc-breakdown { grid-template-columns: 1fr; }
+  .nav-btn { font-size: 0.72em; padding: 9px 6px; }
+  .weight-banner { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="eyebrow">DuocUC · INI5111 · Nivel B1</div>
+    <h1>Guía de Estudio<br>Examen Final Transversal</h1>
+    <p class="subtitle">Inglés Intermedio Intensivo — EFT</p>
+
+    <div class="weight-banner">
+      <div class="weight-half written">
+        <div class="wh-label">Examen Escrito</div>
+        <div class="wh-pct">30%</div>
+        <div class="wh-sub">de tu nota final</div>
+      </div>
+      <div class="weight-half oral">
+        <div class="wh-label">Examen Oral</div>
+        <div class="wh-pct">10%</div>
+        <div class="wh-sub">de tu nota final</div>
+      </div>
+    </div>
+    <div class="weight-note">El EFT completo vale 40% · Tu promedio de ramos vale 60%</div>
+  </div>
+
+  <!-- NAV BAR -->
+  <div class="nav-bar">
+    <!-- Row 1: group labels -->
+    <div class="nav-labels">
+      <div class="nav-label-spacer"></div>
+      <div class="nav-label-cell written">📝 Escrito · 30% nota final</div>
+      <div class="nav-label-cell oral">🗣️ Oral · 10% nota final</div>
+      <div class="nav-label-spacer"></div>
+    </div>
+    <!-- Row 2: tabs -->
+    <div class="nav-tabs" id="navTabs">
+      <button class="nav-btn active" onclick="showTab('overview', this)">📋 Panorama</button>
+      <button class="nav-btn" onclick="showTab('calc', this)">🧮 Calculadora</button>
+      <div class="nav-sep"></div>
+      <button class="nav-btn group-written" onclick="showTab('listening', this)">🎧 Listening</button>
+      <button class="nav-btn group-written" onclick="showTab('reading', this)">📖 Reading</button>
+      <button class="nav-btn group-written" onclick="showTab('writing', this)">✍️ Writing</button>
+      <div class="nav-sep"></div>
+      <button class="nav-btn group-oral" onclick="showTab('speaking', this)">🗣️ Speaking</button>
+      <div class="nav-sep"></div>
+      <button class="nav-btn" onclick="showTab('grammar', this)">⚙️ Gramática</button>
+      <button class="nav-btn" onclick="showTab('checklist', this)">☑️ Checklist</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ══════════ PANORAMA ══════════ -->
+    <div id="tab-overview" class="tab-panel active">
+      <div class="section-title">
+        <div class="section-icon icon-overview">📋</div>
+        <h2>Panorama general del examen</h2>
+      </div>
+
+      <div class="intro-box">
+        Esta guía te ayuda a <strong>prepararte</strong> para el examen desarrollando las habilidades que necesitas. Cada sección explica cómo funciona el tipo de pregunta, qué gramática aplica, y qué errores evitar.
+      </div>
+
+      <div class="exam-split">
+        <div class="exam-half">
+          <div class="exam-half-header written">
+            <h3>📝 Examen Escrito</h3>
+            <span class="big-pct">30%</span>
+          </div>
+          <div class="exam-half-body">
+            <ul>
+              <li><span>Duración</span><strong>60 minutos</strong></li>
+              <li><span>🎧 Listening</span><strong>12 pts · 2 partes</strong></li>
+              <li><span>📖 Reading</span><strong>12 pts · 2 partes</strong></li>
+              <li><span>✍️ Writing</span><strong>12 pts · mín. 80 palabras</strong></li>
+              <li><span>Total</span><strong>36 puntos</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="exam-half">
+          <div class="exam-half-header oral">
+            <h3>🗣️ Examen Oral</h3>
+            <span class="big-pct" style="color:#0891b2">10%</span>
+          </div>
+          <div class="exam-half-body">
+            <ul>
+              <li><span>Sección 1</span><strong>Individual · preguntas abiertas</strong></li>
+              <li><span>Sección 2</span><strong>Pareja · interacción</strong></li>
+              <li><span>Total</span><strong>12 puntos</strong></li>
+              <li><span>Respuestas</span><strong>oraciones completas</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-block">
+        <h4>⏱️ Distribución sugerida del tiempo — Examen Escrito (60 min)</h4>
+        <div class="time-row"><span>🎧 Listening — escuchar + responder</span><span class="tr-time">~20 min</span></div>
+        <div class="time-row"><span>📖 Reading — leer + responder</span><span class="tr-time">~20 min</span></div>
+        <div class="time-row"><span>✍️ Writing — planificar + escribir + revisar</span><span class="tr-time">~20 min</span></div>
+        <div class="time-row"><span>Total</span><span class="tr-time">60 min</span></div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-label">💡 Estrategia global</div>
+        Lee <strong>todas las preguntas antes</strong> de escuchar el audio o leer el texto. En Listening, esto te permite saber qué información buscar. En Reading, localiza las respuestas más rápido. En Writing, reserva 3–4 minutos al final para revisar.
+      </div>
+
+      <div class="warning-box" style="margin-top:0;">
+        <div class="tip-label">⚠️ Antes de entrar a la sala — lleva esto</div>
+        <ul style="list-style:none;padding:0;margin:0;">
+          <li style="display:flex;gap:8px;margin-bottom:7px;align-items:flex-start;"><span>✏️</span><span><strong>Lápiz de pasta y lápiz grafito</strong> — el examen se responde a mano. Sin lápiz, no puedes escribir.</span></li>
+          <li style="display:flex;gap:8px;margin-bottom:7px;align-items:flex-start;"><span>🔲</span><span><strong>Corrector líquido o cinta correctora</strong> — si te equivocas, necesitas corregir limpiamente.</span></li>
+          <li style="display:flex;gap:8px;align-items:flex-start;"><span>🪄</span><span><strong>Goma de borrar</strong> — para el lápiz grafito que uses en notas y esquemas durante el Listening.</span></li>
+        </ul>
+      </div>
+
+      <div class="warning-box" style="background:#fff1f2;border-color:#fca5a5;border-left-color:#ef4444;color:#7f1d1d;">
+        <div class="tip-label" style="color:#ef4444;">🚫 Cuidado al marcar respuestas</div>
+        Si marcas <strong>dos alternativas</strong> en una misma pregunta, la respuesta se anula — aunque una de las dos sea la correcta. Esto incluye marcar una y luego hacer rayones o cruces para indicar "esta no" — el corrector lo leerá como dos marcas.<br><br>
+        Si te equivocas: <strong>usa corrector</strong> para borrar completamente la marca anterior antes de marcar la correcta. No tachar, no flechas, no anotaciones al lado.
+      </div>
+    </div>
+
+    <!-- ══════════ CALCULADORA ══════════ -->
+    <div id="tab-calc" class="tab-panel">
+      <div class="section-title">
+        <div class="section-icon icon-calc">🧮</div>
+        <h2>Calculadora de nota final</h2>
+      </div>
+
+      <div class="intro-box">
+        Ingresa tu promedio actual y las notas que esperas obtener en el examen para ver tu nota final proyectada.
+      </div>
+
+      <div class="calc-card">
+        <h3>¿Cuál sería tu nota final?</h3>
+        <div class="calc-sub">Todas las notas en escala chilena (1,0 – 7,0)</div>
+
+        <div class="calc-inputs">
+          <div class="calc-field">
+            <label>Promedio actual
+              <span class="field-pct">Pesa 60% de tu nota final</span>
+            </label>
+            <input type="number" id="calcPromedio" min="1" max="7" step="0.1" value="5.0" oninput="calcNota()">
+          </div>
+          <div class="calc-field">
+            <label>Nota escrito (EFT)
+              <span class="field-pct">Pesa 30% de tu nota final</span>
+            </label>
+            <input type="number" id="calcEscrito" min="1" max="7" step="0.1" value="5.0" oninput="calcNota()">
+          </div>
+          <div class="calc-field">
+            <label>Nota oral (EFT)
+              <span class="field-pct">Pesa 10% de tu nota final</span>
+            </label>
+            <input type="number" id="calcOral" min="1" max="7" step="0.1" value="5.0" oninput="calcNota()">
+          </div>
+        </div>
+
+        <div class="calc-formula">
+          <strong>Nota final</strong> = (Promedio × 0,6) + (Escrito × 0,3) + (Oral × 0,1)
+        </div>
+
+        <div class="calc-result">
+          <div class="calc-result-num" id="calcResultNum">5,0</div>
+          <div class="calc-result-info">
+            <div class="calc-result-label">Nota final proyectada</div>
+            <div class="calc-result-msg" id="calcResultMsg">¡Buen camino! Sigue así.</div>
+          </div>
+          <div class="calc-breakdown">
+            <div class="calc-bd-item">
+              <div class="bd-label">Promedio</div>
+              <div class="bd-val" id="bdProm">5,0</div>
+              <div class="bd-contribution" id="bdPromC">× 0,6 = 3,00</div>
+            </div>
+            <div class="calc-bd-item">
+              <div class="bd-label">Escrito</div>
+              <div class="bd-val" id="bdEsc">5,0</div>
+              <div class="bd-contribution" id="bdEscC">× 0,3 = 1,50</div>
+            </div>
+            <div class="calc-bd-item">
+              <div class="bd-label">Oral</div>
+              <div class="bd-val" id="bdOral">5,0</div>
+              <div class="bd-contribution" id="bdOralC">× 0,1 = 0,50</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-box">
+        <div class="tip-label">💡 ¿Cuánto necesitas en el escrito para aprobar?</div>
+        Para obtener nota 4,0 final necesitas que la suma ponderada sea al menos 4,0. Si tu promedio es alto, el examen tiene menos presión. Si tu promedio es bajo, el examen escrito (30%) es donde puedes recuperar más puntos — el oral solo pesa 10%.
+      </div>
+    </div>
+
+    <!-- ══════════ LISTENING ══════════ -->
+    <div id="tab-listening" class="tab-panel">
+      <div class="section-title">
+        <div class="section-icon icon-listening">🎧</div>
+        <h2>Listening</h2>
+        <div class="pts-badge">12 pts · parte del Escrito (30%)</div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-listening">Parte A</span>
+          Ordenar ideas según el audio — 5 pts
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-p">Escucharás un audio y recibirás una lista de <strong>5 ideas (A–E)</strong>. Tu tarea es asignarle a cada una el número que indica el orden en que aparece en el audio: 1 para la primera, 2 para la segunda, y así.</p>
+          <div class="warning-box">
+            <div class="tip-label">⚠️ Importante</div>
+            Las ideas están <strong>parafraseadas</strong> — no usan las mismas palabras del audio. Tienes que entender el significado, no buscar frases idénticas.
+          </div>
+          <p class="acc-p"><strong>Estrategia paso a paso:</strong></p>
+          <ol class="steps-list">
+            <li>Lee las 5 ideas <strong>antes de escuchar</strong>.</li>
+            <li>Identifica la idea central de cada opción (¿de qué trata?).</li>
+            <li>Durante la primera escucha, pon una marca provisional cuando creas que aparece cada idea.</li>
+            <li>Durante la segunda escucha, confirma o corrige tu orden.</li>
+            <li>Verifica que usaste los números 1–5, uno por idea, sin repetir.</li>
+          </ol>
+          <div class="tip-box">
+            <div class="tip-label">💡 Tip</div>
+            Si no estás seguro de una idea, no la dejes en blanco — usa el proceso de eliminación. Si ya tienes 4 posiciones seguras, la quinta se deduce sola.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-listening">Parte B</span>
+          Preguntas de respuesta corta — 7 pts
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-p">Escucharás <strong>5 conversaciones cortas</strong>. Para cada una, responderás una o dos preguntas específicas <strong>en oraciones completas</strong>.</p>
+          <div class="warning-box">
+            <div class="tip-label">⚠️ Error frecuente</div>
+            Responder solo con una palabra o frase: <span class="ex-bad">"On the bus."</span><br>
+            La instrucción pide oraciones completas: <span class="ex-good">"Kate used to be bullied on the school bus."</span>
+          </div>
+          <ol class="steps-list">
+            <li>Lee la pregunta antes de escuchar — identifica qué tipo de información necesitas (¿quién? ¿qué? ¿dónde? ¿por qué?).</li>
+            <li>Toma notas mientras escuchas — palabras clave, no oraciones.</li>
+            <li>Con tus notas, construye la respuesta completa después de escuchar.</li>
+          </ol>
+          <div class="example-box">
+            <div class="ex-label">✏️ Estructura de respuesta</div>
+            <div class="ex-line">Pregunta: <em>What did someone use to hate about school? Why?</em></div>
+            <div class="ex-line ex-bad">❌ "Homework" (incompleto)</div>
+            <div class="ex-line ex-good">✓ "She used to hate the homework after school because there was too much of it and it was hard to finish."</div>
+            <div class="ex-line ex-note">Sujeto + verbo + complemento. Si la pregunta pide "why", incluye la razón con <em>because</em>.</div>
+          </div>
+          <p class="acc-p"><strong>Preguntas de 2 puntos:</strong> necesitas dar <strong>dos ideas completas</strong>. Usa dos oraciones o una oración con conector.</p>
+          <div class="tip-box">
+            <div class="tip-label">💡 Gramática clave</div>
+            Muchas conversaciones en este nivel usan <strong>used to</strong> para hablar del pasado. Practica reconocer y producir: <em>I used to + verb / I didn't use to + verb.</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-tip">Tips</span>
+          Errores frecuentes en Listening — y cómo evitarlos
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <ul class="bullet-list">
+            <li><strong>No leer las preguntas antes:</strong> siempre léelas primero. Saber qué buscas mejora la comprensión.</li>
+            <li><strong>Intentar escribir mientras escuchas:</strong> primero escucha activamente, luego anota.</li>
+            <li><strong>Buscar las palabras exactas del audio:</strong> las opciones están parafraseadas intencionalmente.</li>
+            <li><strong>Dejar preguntas en blanco:</strong> intenta siempre — una respuesta parcial puede valer algo.</li>
+            <li><strong>No usar la segunda reproducción:</strong> úsala para confirmar y completar, no ignorar.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ READING ══════════ -->
+    <div id="tab-reading" class="tab-panel">
+      <div class="section-title">
+        <div class="section-icon icon-reading">📖</div>
+        <h2>Reading</h2>
+        <div class="pts-badge">12 pts · parte del Escrito (30%)</div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-reading">Parte A</span>
+          Preguntas abiertas sobre un texto — 6 pts
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-p">Leerás un texto de mediana extensión y responderás <strong>6 preguntas abiertas</strong>, cada una de 1 punto.</p>
+          <ol class="steps-list">
+            <li>Lee las preguntas <strong>antes</strong> del texto.</li>
+            <li>Haz una lectura rápida para entender el tema general.</li>
+            <li>Vuelve pregunta por pregunta, localizando la información específica.</li>
+            <li>Escribe tu respuesta en oración completa — no copies frases del texto literalmente.</li>
+          </ol>
+          <div class="warning-box">
+            <div class="tip-label">⚠️ Atención a los tiempos verbales</div>
+            Los textos mezclan <strong>simple past</strong> (eventos completados en un tiempo específico) y <strong>present perfect</strong> (experiencias o situaciones que conectan pasado y presente). Tu respuesta debe usar el tiempo que la pregunta requiere.
+          </div>
+          <div class="example-box">
+            <div class="ex-label">✏️ Respuestas bien formadas</div>
+            <div class="ex-line">Pregunta: <em>Has the book been successful? Why?</em></div>
+            <div class="ex-line ex-bad">❌ "Yes" (incompleto — no da la razón)</div>
+            <div class="ex-line ex-good">✓ "Yes, it has been very successful because it tells stories about friendship and adventure, and it has sold many copies."</div>
+          </div>
+          <div class="tip-box">
+            <div class="tip-label">💡 Tip</div>
+            Cuando la pregunta dice <strong>"Why?"</strong> → usa <em>because</em>. Cuando dice <strong>"When and where?"</strong> → incluye tiempo Y lugar en tu respuesta.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-reading">Parte B</span>
+          True / False con corrección — 6 pts
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-p">Leerás un texto corto y determinarás si cada afirmación es <strong>True o False</strong>. Para las falsas, debes escribir la <strong>información correcta</strong>.</p>
+          <div class="warning-box">
+            <div class="tip-label">⚠️ Error crítico — el más frecuente</div>
+            Marcar F sin escribir la corrección. Cada ítem incluye puntos por la corrección escrita. Sin corrección = puntaje incompleto.
+          </div>
+          <ol class="steps-list">
+            <li>Lee el enunciado y localiza esa información en el texto.</li>
+            <li>Compara: ¿coincide exactamente con lo que dice el texto?</li>
+            <li>Si es True → <strong>marca T</strong>. No necesitas escribir nada más.</li>
+            <li>Si es False → <strong>marca F</strong> y escribe la información correcta en una oración completa en la línea.</li>
+          </ol>
+          <div class="example-box">
+            <div class="ex-label">✏️ Ejemplo</div>
+            <div class="ex-line">Enunciado: <em>"He bought tickets for a concert."</em></div>
+            <div class="ex-line ex-bad">❌ Marcar F sin escribir nada más</div>
+            <div class="ex-line ex-good">✓ Marcar F + escribir: "He bought tickets for the ballet (but it turned out to be an opera)."</div>
+            <div class="ex-line ex-note">Una oración clara con la información correcta es suficiente.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-tip">Tips</span>
+          Estrategias generales de lectura en inglés
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <ul class="bullet-list">
+            <li><strong>Skimming:</strong> primera lectura rápida para entender el tema general. No te detengas en palabras desconocidas.</li>
+            <li><strong>Scanning:</strong> busca información específica sin leer todo — útil cuando ya sabes qué responder.</li>
+            <li><strong>Señales temporales:</strong> palabras como <em>in 2018, since, after, recently, lately, when</em> te dicen qué tiempo verbal buscar.</li>
+            <li><strong>No copies literalmente:</strong> parafrasear demuestra comprensión. Usa tus propias palabras.</li>
+            <li><strong>Inferencia:</strong> a veces la respuesta no está escrita directamente — hay que deducirla del contexto.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ WRITING ══════════ -->
+    <div id="tab-writing" class="tab-panel">
+      <div class="section-title">
+        <div class="section-icon icon-writing">✍️</div>
+        <h2>Writing</h2>
+        <div class="pts-badge">12 pts · parte del Escrito (30%)</div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-writing">Rúbrica</span>
+          Qué evalúa el profesor — los 4 criterios
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <table class="rubric-table">
+            <thead><tr><th>Criterio</th><th>Pts máx.</th><th>Para el puntaje máximo necesitas…</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Coherencia y Extensión</strong></td><td class="pts">4</td><td>Mínimo 80 palabras. Al menos 8 ideas completas, claras y coherentes con el tema.</td></tr>
+              <tr><td><strong>Vocabulario</strong></td><td class="pts">3</td><td>Usar 8+ palabras del nivel B1 correctamente en contexto.</td></tr>
+              <tr><td><strong>Gramática</strong></td><td class="pts">3</td><td>Máximo 1 error gramatical que no afecte la comprensión.</td></tr>
+              <tr><td><strong>Ortografía</strong></td><td class="pts">2</td><td>Máximo 2 errores ortográficos menores.</td></tr>
+              <tr><td><strong>Total</strong></td><td class="pts">12</td><td></td></tr>
+            </tbody>
+          </table>
+          <div class="tip-box">
+            <div class="tip-label">💡 Estrategia de puntaje</div>
+            <strong>Coherencia y Extensión (4 pts)</strong> es el criterio de mayor peso. Asegúrate de llegar a 80 palabras con ideas bien desarrolladas — ese solo criterio puede darte casi un tercio del puntaje total.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-writing">Extensión</span>
+          Cómo llegar a 80 palabras y desarrollar ideas
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-p">80 palabras = aproximadamente 6–8 oraciones. El desafío es desarrollar <strong>ideas completas</strong>, no hacer una lista.</p>
+          <div class="example-box">
+            <div class="ex-label">❌ Idea no desarrollada vs. ✓ Idea desarrollada</div>
+            <div class="ex-line ex-bad">❌ "There should be technology in class." (6 palabras, sin desarrollo)</div>
+            <div class="ex-line ex-good">✓ "I think students should use technology in the classroom because it makes learning more interactive and helps them access information faster. For example, using tablets during lessons can make difficult topics easier to understand." (~35 palabras — una idea completa)</div>
+          </div>
+          <p class="acc-p"><strong>Estructura recomendada:</strong></p>
+          <ol class="steps-list">
+            <li><strong>Oración introductoria</strong> — establece el tema general.</li>
+            <li><strong>2–3 ideas principales</strong> — cada una con afirmación + explicación o ejemplo.</li>
+            <li><strong>Consejo o reflexión final</strong> — incluye una recomendación con <em>should</em>.</li>
+          </ol>
+          <div class="tip-box">
+            <div class="tip-label">💡 Cómo expandir una idea</div>
+            Después de cada afirmación, pregúntate: <em>¿Por qué? ¿Cómo? ¿Qué ejemplo puedo dar?</em> Responder una de esas preguntas dobla el largo de tu idea.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-writing">Gramática</span>
+          Tiempos verbales y conectores clave
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <table class="grammar-table">
+            <thead><tr><th>Estructura</th><th>Cuándo usarla</th><th>Ejemplo</th></tr></thead>
+            <tbody>
+              <tr><td class="form">should / shouldn't</td><td class="use">Dar consejos o recomendaciones</td><td><em>Students should review their notes every day.</em></td></tr>
+              <tr><td class="form">used to + verb</td><td class="use">Hábitos del pasado que ya no ocurren</td><td><em>I used to wear a uniform at school.</em></td></tr>
+              <tr><td class="form">would + verb</td><td class="use">Situaciones hipotéticas o ideales</td><td><em>I would add a music class to the schedule.</em></td></tr>
+              <tr><td class="form">present perfect</td><td class="use">Experiencias o situaciones que conectan pasado y presente</td><td><em>Technology has changed the way students learn.</em></td></tr>
+              <tr><td class="form">comparatives</td><td class="use">Comparar opciones</td><td><em>Smaller classes are more effective than large ones.</em></td></tr>
+            </tbody>
+          </table>
+          <p class="acc-p" style="margin-top:16px;"><strong>Conectores que demuestran nivel B1:</strong></p>
+          <table class="grammar-table">
+            <thead><tr><th>Función</th><th>Conectores útiles</th></tr></thead>
+            <tbody>
+              <tr><td>Agregar</td><td><em>In addition, Furthermore, Also, Moreover</em></td></tr>
+              <tr><td>Contrastar</td><td><em>However, On the other hand, Although, Even though</em></td></tr>
+              <tr><td>Razones</td><td><em>Because, Since, As a result, This is why</em></td></tr>
+              <tr><td>Ejemplos</td><td><em>For example, For instance, Such as</em></td></tr>
+              <tr><td>Concluir</td><td><em>In conclusion, To sum up, Overall, In my opinion</em></td></tr>
+            </tbody>
+          </table>
+          <div class="warning-box">
+            <div class="tip-label">⚠️ Error frecuente</div>
+            Usar solo <em>also</em> o <em>and</em> para conectar todo. A nivel B1 se espera variedad — intenta usar al menos 3 conectores diferentes en tu texto.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-tip">Tips</span>
+          Lista de revisión antes de entregar el Writing
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <ul class="bullet-list">
+            <li>¿Conté las palabras? ¿Tengo mínimo 80?</li>
+            <li>¿Cada idea está desarrollada con explicación o ejemplo?</li>
+            <li>¿Usé al menos 3 conectores diferentes?</li>
+            <li>¿Conjugué correctamente los verbos?</li>
+            <li>¿Incluí una recomendación con <em>should</em>?</li>
+            <li>¿Revisé el spelling de palabras dudosas?</li>
+            <li>¿Mi texto responde el tema propuesto?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ SPEAKING ══════════ -->
+    <div id="tab-speaking" class="tab-panel">
+      <div class="section-title">
+        <div class="section-icon icon-speaking">🗣️</div>
+        <h2>Speaking</h2>
+        <div class="pts-badge">12 pts · Oral (10% nota final)</div>
+      </div>
+
+      <div class="intro-box">
+        El examen oral tiene <strong>2 secciones</strong> y se evalúa con una rúbrica de 4 criterios. Conocerlos te permite saber exactamente en qué enfocarte durante la evaluación.
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-speaking">Rúbrica Oral</span>
+          Los 4 criterios de evaluación — 12 pts
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <table class="rubric-table">
+            <thead><tr><th>Criterio</th><th>Pts máx.</th><th>Para el puntaje máximo necesitas…</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Coherencia y Fluidez</strong></td>
+                <td class="pts">4</td>
+                <td>Completar todas las tareas de forma coherente, con fluidez y máximo 3 interrupciones o autocorrecciones menores que no afecten la comprensión.</td>
+              </tr>
+              <tr>
+                <td><strong>Vocabulario</strong></td>
+                <td class="pts">3</td>
+                <td>Usar correctamente 6 o más palabras del vocabulario del nivel en contextos adecuados.</td>
+              </tr>
+              <tr>
+                <td><strong>Gramática</strong></td>
+                <td class="pts">3</td>
+                <td>Oraciones gramaticalmente correctas con máximo 1 error que no afecte la comprensión.</td>
+              </tr>
+              <tr>
+                <td><strong>Pronunciación</strong></td>
+                <td class="pts">2</td>
+                <td>Máximo 2 errores de pronunciación que no interfieran con la comprensión del mensaje.</td>
+              </tr>
+              <tr><td><strong>Total</strong></td><td class="pts">12</td><td></td></tr>
+            </tbody>
+          </table>
+          <div class="tip-box">
+            <div class="tip-label">💡 Qué priorizar</div>
+            <strong>Coherencia y Fluidez (4 pts)</strong> es el criterio más importante. Más vale hablar con fluidez y algún error gramatical que hacerlo perfectamente pero con muchas pausas y titubeos. La comunicación es el objetivo principal.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-speaking">Sección 1</span>
+          Tarea individual — responder preguntas abiertas
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-p">Elegirás una opción y responderás las preguntas en pantalla con <strong>oraciones completas</strong> y ideas desarrolladas.</p>
+          <p class="acc-p"><strong>Cómo desarrollar una buena respuesta oral:</strong></p>
+          <ol class="steps-list">
+            <li><strong>Responde directamente</strong> — no evites la pregunta.</li>
+            <li><strong>Agrega un detalle</strong> — una razón, un ejemplo, una descripción.</li>
+            <li><strong>Agrega una segunda idea</strong> — consecuencia, comparación u opinión.</li>
+          </ol>
+          <div class="example-box">
+            <div class="ex-label">✏️ Respuesta mínima vs. respuesta desarrollada</div>
+            <div class="ex-line">Pregunta: <em>"What advice would you give to someone who feels really sad?"</em></div>
+            <div class="ex-line ex-bad">❌ "They should talk to someone." (una idea, sin desarrollo)</div>
+            <div class="ex-line ex-good">✓ "I think they should talk to a friend or family member because sharing your feelings really helps. In addition, I would recommend going outside for a walk — exercise is great for improving your mood. You shouldn't stay alone at home all day."</div>
+            <div class="ex-line ex-note">Variedad gramatical + conectores + ideas desarrolladas = puntaje alto en todos los criterios.</div>
+          </div>
+          <div class="tip-box">
+            <div class="tip-label">💡 Qué temas practicar</div>
+            Practica hablar de: experiencias pasadas y presentes, comparaciones, planes futuros, opiniones personales, consejos, y descripciones. Intenta usar distintos tiempos verbales al responder.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-speaking">Sección 2</span>
+          Interacción en pareja — preguntas y respuestas
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-p">Junto a otro estudiante elegirán un tema o conjunto de verbos. <strong>Cada uno formula 2 preguntas diferentes</strong> y responde las preguntas del otro.</p>
+          <div class="warning-box">
+            <div class="tip-label">⚠️ Regla importante</div>
+            Las preguntas de ambos estudiantes <strong>deben ser diferentes</strong>. Coordinen brevemente antes para no repetir.
+          </div>
+          <p class="acc-p"><strong>Cómo formular buenas preguntas (nivel B1):</strong></p>
+          <table class="grammar-table">
+            <thead><tr><th>Tiempo verbal</th><th>Ejemplo de pregunta</th></tr></thead>
+            <tbody>
+              <tr><td class="form">Presente</td><td><em>How often do you…? / What do you usually…?</em></td></tr>
+              <tr><td class="form">Pasado simple</td><td><em>Did you…? / What did you…?</em></td></tr>
+              <tr><td class="form">Used to</td><td><em>Did you use to…? / What did you use to…?</em></td></tr>
+              <tr><td class="form">Present perfect</td><td><em>Have you ever…? / How long have you…?</em></td></tr>
+              <tr><td class="form">Futuro / planes</td><td><em>Are you going to…? / What will you…?</em></td></tr>
+              <tr><td class="form">Condicional</td><td><em>What would you do if…? / Would you…?</em></td></tr>
+            </tbody>
+          </table>
+          <div class="tip-box">
+            <div class="tip-label">💡 Sobre los phrasal verbs</div>
+            En algunas opciones se te asignarán phrasal verbs para usar en tus preguntas. Lo importante no es memorizarlos de antemano, sino entender <strong>cómo funcionan gramaticalmente</strong>: algunos son separables (el objeto puede ir en medio), otros son inseparables. Practica usarlos en oraciones propias para ganar fluidez.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-tip">Tips</span>
+          Cómo mejorar tu desempeño oral antes del examen
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <ul class="bullet-list">
+            <li><strong>Practica en voz alta</strong> — no solo en tu cabeza. La fluidez oral se desarrolla hablando.</li>
+            <li><strong>Grábate</strong> — escucha si completas las oraciones o te quedas a mitad de la idea.</li>
+            <li><strong>No te detengas por palabras que no sabes</strong> — usa un sinónimo o describe el concepto.</li>
+            <li><strong>Frases para ganar tiempo:</strong> <em>"That's a good question…", "Let me think about that…", "Well, I would say that…"</em> — estas cuentan como fluidez, no como error.</li>
+            <li><strong>Practica temas amplios:</strong> experiencias pasadas, planes futuros, opiniones, comparaciones, situaciones hipotéticas.</li>
+            <li><strong>Cuida la coherencia:</strong> el criterio de mayor peso es que tus ideas respondan la pregunta — antes que la pronunciación perfecta.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ GRAMÁTICA ══════════ -->
+    <div id="tab-grammar" class="tab-panel">
+      <div class="section-title">
+        <div class="section-icon icon-grammar">⚙️</div>
+        <h2>Gramática clave — Nivel B1</h2>
+      </div>
+
+      <div class="intro-box">
+        Estas estructuras aparecen en múltiples secciones del escrito y del oral. Dominarlas te da ventaja transversal en todo el examen.
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-grammar">Estructura</span>
+          Used to — hábitos y situaciones del pasado
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-p"><em>Used to</em> describe hábitos o situaciones que existían en el pasado pero <strong>ya no ocurren</strong>. Implica contraste con el presente.</p>
+          <table class="grammar-table">
+            <thead><tr><th>Forma</th><th>Estructura</th><th>Ejemplo</th></tr></thead>
+            <tbody>
+              <tr><td class="form">Afirmativa</td><td>subject + used to + verb</td><td><em>I used to walk to school every day.</em></td></tr>
+              <tr><td class="form">Negativa</td><td>subject + didn't use to + verb</td><td><em>She didn't use to like vegetables.</em></td></tr>
+              <tr><td class="form">Pregunta</td><td>Did + subject + use to + verb?</td><td><em>Did you use to play sports at school?</em></td></tr>
+            </tbody>
+          </table>
+          <div class="warning-box">
+            <div class="tip-label">⚠️ Error frecuente</div>
+            <span class="ex-bad">"I used to played football"</span> — después de <em>used to</em>, el verbo siempre va en forma base.<br>
+            <span class="ex-good">Correcto: "I used to play football."</span>
+          </div>
+          <div class="example-box">
+            <div class="ex-label">✏️ Practica esta estructura</div>
+            <div class="ex-line ex-good">When I was a child, I used to watch cartoons every morning. I didn't use to do much homework because school was easier. I used to go to the park near my house every weekend.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-grammar">Estructura</span>
+          Present Perfect — experiencias y situaciones actuales
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-p">Conecta el pasado con el presente. Úsalo para hablar de <strong>experiencias de vida</strong> (sin especificar cuándo), o situaciones que <strong>continúan</strong>.</p>
+          <table class="grammar-table">
+            <thead><tr><th>Forma</th><th>Estructura</th><th>Ejemplo</th></tr></thead>
+            <tbody>
+              <tr><td class="form">Afirmativa</td><td>subject + have/has + past participle</td><td><em>She has written three books.</em></td></tr>
+              <tr><td class="form">Negativa</td><td>subject + haven't/hasn't + past participle</td><td><em>He hasn't stopped working since then.</em></td></tr>
+              <tr><td class="form">Pregunta</td><td>Have/Has + subject + past participle?</td><td><em>Have you ever traveled abroad?</em></td></tr>
+            </tbody>
+          </table>
+          <p class="acc-p"><strong>Señales de tiempo del present perfect:</strong></p>
+          <ul class="bullet-list">
+            <li><em>since</em> — desde un punto en el tiempo: <em>"She has been a teacher since 2020."</em></li>
+            <li><em>for</em> — durante un período: <em>"I have studied English for three years."</em></li>
+            <li><em>ever / never, already / yet / just / recently / lately</em></li>
+          </ul>
+          <div class="warning-box">
+            <div class="tip-label">⚠️ Simple past vs. Present perfect</div>
+            Usa <strong>simple past</strong> cuando dices cuándo ocurrió: <em>"She published her first book in 2022."</em><br>
+            Usa <strong>present perfect</strong> cuando no especificas cuándo, o el resultado importa ahora: <em>"She has published two books."</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-grammar">Estructura</span>
+          Verbos modales — consejos, obligación y posibilidad
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <p class="acc-p">Después de un modal, el verbo siempre va en <strong>forma base</strong> (sin <em>-s</em>, sin <em>-ing</em>, sin <em>-ed</em>).</p>
+          <table class="grammar-table">
+            <thead><tr><th>Modal</th><th>Uso</th><th>Ejemplo</th></tr></thead>
+            <tbody>
+              <tr><td class="form">should</td><td class="use">Consejo / recomendación</td><td><em>You should get more sleep.</em></td></tr>
+              <tr><td class="form">shouldn't</td><td class="use">Consejo negativo</td><td><em>You shouldn't stay up late before the exam.</em></td></tr>
+              <tr><td class="form">must / have to</td><td class="use">Obligación</td><td><em>We have to wear a uniform at school.</em></td></tr>
+              <tr><td class="form">can / could</td><td class="use">Habilidad / posibilidad</td><td><em>She can speak three languages.</em></td></tr>
+              <tr><td class="form">would</td><td class="use">Situaciones hipotéticas</td><td><em>I would add a music class to my school.</em></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAcc(this)">
+          <span class="accordion-tag tag-grammar">Estructura</span>
+          Condicionales — real e hipotético
+          <span class="accordion-chevron">▼</span>
+        </button>
+        <div class="accordion-body">
+          <table class="grammar-table">
+            <thead><tr><th>Tipo</th><th>Estructura</th><th>Cuándo usarlo</th><th>Ejemplo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="form">1st conditional<br><span style="font-size:0.82em;color:var(--muted);">real / probable</span></td>
+                <td>If + present simple, will + verb</td>
+                <td class="use">Situaciones posibles en el futuro</td>
+                <td><em>If I study hard, I will pass the exam.</em></td>
+              </tr>
+              <tr>
+                <td class="form">2nd conditional<br><span style="font-size:0.82em;color:var(--muted);">hipotético</span></td>
+                <td>If + past simple, would + verb</td>
+                <td class="use">Situaciones imaginarias o poco probables</td>
+                <td><em>If I could change my school, I would add more sports classes.</em></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="warning-box">
+            <div class="tip-label">⚠️ Error frecuente</div>
+            <span class="ex-bad">"If I would have more time, I would study more."</span> — no uses <em>would</em> en la cláusula con <em>if</em>.<br>
+            <span class="ex-good">Correcto: "If I had more time, I would study more."</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ CHECKLIST ══════════ -->
+    <div id="tab-checklist" class="tab-panel">
+      <div class="section-title">
+        <div class="section-icon icon-overview">☑️</div>
+        <h2>Checklist de preparación</h2>
+      </div>
+
+      <div class="progress-bar-wrap">
+        <span class="progress-label" id="progressLabel">0 / 24 completado</span>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <div class="checklist-section">
+        <h3>🎒 El día del examen</h3>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Llevo lápiz de pasta y lápiz grafito.</span><span class="ci-badge badge-g">Material</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Llevo corrector líquido o cinta correctora.</span><span class="ci-badge badge-g">Material</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Sé que si marco dos alternativas la respuesta se anula — aunque una sea correcta.</span><span class="ci-badge badge-g">Regla</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Si me equivoco al marcar, uso corrector — no tacho ni hago rayones.</span><span class="ci-badge badge-g">Regla</span></label>
+      </div>
+
+      <div class="checklist-section">
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Sé cómo funciona una pregunta de ordenamiento y cuál es la estrategia correcta.</span><span class="ci-badge badge-l">Part A</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Practico leer las preguntas antes de escuchar el audio.</span><span class="ci-badge badge-l">Estrategia</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Sé responder en oraciones completas (no solo palabras sueltas).</span><span class="ci-badge badge-l">Part B</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Entiendo cómo usar <em>used to</em> en respuestas sobre el pasado.</span><span class="ci-badge badge-l">Gramática</span></label>
+      </div>
+
+      <div class="checklist-section">
+        <h3>📖 Reading</h3>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Aplico la estrategia de leer las preguntas antes del texto.</span><span class="ci-badge badge-r">Estrategia</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Puedo distinguir cuándo usar <em>simple past</em> vs. <em>present perfect</em>.</span><span class="ci-badge badge-r">Gramática</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">En True/False, siempre escribo la corrección cuando marco F.</span><span class="ci-badge badge-r">Part B</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Mis respuestas incluyen sujeto + verbo (no solo frases cortas).</span><span class="ci-badge badge-r">Forma</span></label>
+      </div>
+
+      <div class="checklist-section">
+        <h3>✍️ Writing</h3>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Conozco los 4 criterios de la rúbrica y qué evalúa cada uno.</span><span class="ci-badge badge-w">Rúbrica</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Puedo escribir 80+ palabras con ideas desarrolladas (no solo una lista).</span><span class="ci-badge badge-w">Extensión</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Uso al menos 3 conectores diferentes en mi texto.</span><span class="ci-badge badge-w">Conectores</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Incluyo al menos una recomendación con <em>should</em> o <em>shouldn't</em>.</span><span class="ci-badge badge-w">Gramática</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Reviso spelling y conjugación en los últimos minutos.</span><span class="ci-badge badge-w">Revisión</span></label>
+      </div>
+
+      <div class="checklist-section">
+        <h3>🗣️ Speaking</h3>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Conozco los 4 criterios del oral y sé que Coherencia y Fluidez es el más importante.</span><span class="ci-badge badge-s">Rúbrica</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Practico responder preguntas orales con al menos 3–4 oraciones completas.</span><span class="ci-badge badge-s">Sección 1</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Sé formular preguntas en distintos tiempos verbales para la interacción en pareja.</span><span class="ci-badge badge-s">Sección 2</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Tengo frases para ganar tiempo si necesito pensar durante la conversación.</span><span class="ci-badge badge-s">Fluidez</span></label>
+      </div>
+
+      <div class="checklist-section">
+        <h3>⚙️ Gramática</h3>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Domino la estructura <em>used to / didn't use to / Did you use to…?</em></span><span class="ci-badge badge-g">Used to</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Conozco las señales del present perfect (<em>since, for, ever, already, yet, lately</em>).</span><span class="ci-badge badge-g">Pres. Perf.</span></label>
+        <label class="check-item" onclick="toggleCheck(this)"><input type="checkbox"><span class="ci-text">Sé usar el 2nd conditional: <em>If I + past simple, I would + verb.</em></span><span class="ci-badge badge-g">Conditional</span></label>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /container -->
+
+<script>
+// ── TABS ──
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+
+  // Group highlight logic
+  const navTabs = document.getElementById('navTabs');
+  navTabs.classList.remove('written-active', 'oral-active');
+  if (btn && btn.classList.contains('group-written')) navTabs.classList.add('written-active');
+  if (btn && btn.classList.contains('group-oral'))    navTabs.classList.add('oral-active');
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── ACCORDION ──
+function toggleAcc(header) {
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+  header.closest('.tab-panel').querySelectorAll('.accordion-header').forEach(h => {
+    h.classList.remove('open');
+    h.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    header.classList.add('open');
+    body.classList.add('open');
+  }
+}
+
+// ── CALCULADORA ──
+function clamp(v, min, max) { return Math.min(max, Math.max(min, parseFloat(v) || min)); }
+
+function calcNota() {
+  const p = clamp(document.getElementById('calcPromedio').value, 1, 7);
+  const e = clamp(document.getElementById('calcEscrito').value, 1, 7);
+  const o = clamp(document.getElementById('calcOral').value, 1, 7);
+
+  const contrib_p = p * 0.6;
+  const contrib_e = e * 0.3;
+  const contrib_o = o * 0.1;
+  const nota = Math.min(7, Math.max(1, Math.round((contrib_p + contrib_e + contrib_o) * 10) / 10));
+
+  const fmt = n => n.toFixed(1).replace('.', ',');
+
+  document.getElementById('calcResultNum').textContent = fmt(nota);
+  document.getElementById('bdProm').textContent  = fmt(p);
+  document.getElementById('bdEsc').textContent   = fmt(e);
+  document.getElementById('bdOral').textContent  = fmt(o);
+  document.getElementById('bdPromC').textContent = '× 0,6 = ' + fmt(contrib_p);
+  document.getElementById('bdEscC').textContent  = '× 0,3 = ' + fmt(contrib_e);
+  document.getElementById('bdOralC').textContent = '× 0,1 = ' + fmt(contrib_o);
+
+  const num = document.getElementById('calcResultNum');
+  let msg = '', color = '';
+  if (nota >= 6.5)      { msg = '🌟 ¡Excelente resultado!';          color = '#059669'; }
+  else if (nota >= 5.5) { msg = '✅ ¡Muy buen desempeño!';           color = '#10b981'; }
+  else if (nota >= 4.0) { msg = '👍 Aprobado — ¡bien hecho!';        color = '#f59e0b'; }
+  else if (nota >= 3.5) { msg = '⚠️ Cerca de aprobar — ¡sigue!';     color = '#f97316'; }
+  else                  { msg = '🔴 Por debajo del mínimo — ánimo.'; color = '#ef4444'; }
+
+  num.style.color = color;
+  document.getElementById('calcResultMsg').textContent = msg;
+}
+
+// ── CHECKLIST ──
+function toggleCheck(label) {
+  const cb = label.querySelector('input[type="checkbox"]');
+  cb.checked = !cb.checked;
+  label.classList.toggle('checked', cb.checked);
+  updateProgress();
+  saveChecklist();
+}
+
+function updateProgress() {
+  const total = document.querySelectorAll('.check-item').length;
+  const done  = document.querySelectorAll('.check-item.checked').length;
+  const pct   = Math.round((done / total) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = done + ' / ' + total + ' completado';
+}
+
+function saveChecklist() {
+  const states = [];
+  document.querySelectorAll('.check-item input').forEach(cb => states.push(cb.checked));
+  try { localStorage.setItem('ini5111_checklist_v2', JSON.stringify(states)); } catch(e) {}
+}
+
+function loadChecklist() {
+  try {
+    const raw = localStorage.getItem('ini5111_checklist_v2');
+    if (!raw) return;
+    JSON.parse(raw).forEach((checked, i) => {
+      const items = document.querySelectorAll('.check-item');
+      if (checked && items[i]) {
+        items[i].querySelector('input').checked = true;
+        items[i].classList.add('checked');
+      }
+    });
+    updateProgress();
+  } catch(e) {}
+}
+
+// ── INIT ──
+calcNota();
+loadChecklist();
+</script>
+</body>
+</html>
