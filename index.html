@@ -577,6 +577,40 @@ body {
 .progress-label { font-size: 0.83em; font-weight: 600; color: var(--muted); white-space: nowrap; }
 
 /* RESPONSIVE */
+/* ── PRÁCTICA ── */
+.step-card { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 16px; }
+.step-hd { display: flex; align-items: center; gap: 14px; padding: 16px 20px; }
+.step-hd.s1 { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+.step-hd.s2 { background: linear-gradient(135deg, #ffe4e6, #fecdd3); }
+.step-hd.s3 { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+.step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: white; font-weight: 800; font-size: 1em; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-title { font-weight: 700; font-size: 0.95em; color: var(--text); }
+.step-sub { font-size: 0.78em; color: var(--muted); margin-top: 2px; }
+.step-body { padding: 18px 20px; background: white; }
+.task-stimulus { background: #f8fafc; border: 1px solid var(--border); border-left: 4px solid var(--primary); border-radius: 10px; padding: 16px 20px; font-size: 0.92em; line-height: 1.8; }
+.task-stimulus .task-intro { margin-bottom: 10px; font-weight: 600; }
+.task-stimulus ul { list-style: none; padding: 0; margin: 0; }
+.task-stimulus ul li { padding: 6px 0; padding-left: 16px; position: relative; border-bottom: 1px solid var(--border); line-height: 1.65; }
+.task-stimulus ul li:last-child { border-bottom: none; }
+.task-stimulus ul li::before { content: '·'; position: absolute; left: 4px; color: var(--primary); font-weight: 700; }
+.task-grammar { display: inline-flex; align-items: center; background: #ede9fe; color: var(--secondary); font-size: 0.72em; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-left: 6px; }
+.task-example { color: var(--muted); font-style: italic; font-size: 0.9em; display: block; margin-top: 3px; padding-left: 2px; }
+.wcount-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 0.82em; color: var(--muted); }
+#wCount { font-weight: 700; color: var(--primary); transition: color 0.3s; }
+#wCount.wok { color: var(--success); } #wCount.wwarn { color: var(--warning); }
+#practiceArea { width: 100%; min-height: 220px; border: 2px solid var(--border); border-radius: 12px; padding: 14px; font-family: 'DM Sans', sans-serif; font-size: 0.93em; line-height: 1.75; color: var(--text); resize: vertical; transition: border-color 0.2s; }
+#practiceArea:focus { outline: none; border-color: var(--primary); }
+#practiceArea.wok { border-color: var(--success); } #practiceArea.wwarn { border-color: var(--warning); }
+.eval-btn { width: 100%; margin-top: 14px; padding: 13px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.95em; font-weight: 700; cursor: pointer; letter-spacing: 0.5px; transition: all 0.2s; }
+.eval-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(79,70,229,0.3); }
+.pcheck-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: 9px; background: #fafafa; border: 1px solid var(--border); cursor: pointer; transition: all 0.18s; user-select: none; font-size: 0.87em; line-height: 1.5; margin-bottom: 8px; }
+.pcheck-item:hover { background: #f1f5f9; }
+.pcheck-item.pchecked { background: #f0fdf4; border-color: #6ee7b7; }
+.pcheck-item input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--success); flex-shrink: 0; margin-top: 2px; }
+.pcheck-item .pci-text { color: var(--text); }
+.pcheck-item.pchecked .pci-text { color: var(--muted); text-decoration: line-through; }
+.pcheck-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
 @media (max-width: 680px) {
   .content { padding: 22px 18px; }
   .header { padding: 28px 20px 22px; }
@@ -586,6 +620,7 @@ body {
   .calc-breakdown { grid-template-columns: 1fr; }
   .nav-btn { font-size: 0.72em; padding: 9px 6px; }
   .weight-banner { max-width: 100%; }
+  .pcheck-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -630,6 +665,7 @@ body {
       <button class="nav-btn group-written" onclick="showTab('listening', this)">🎧 Listening</button>
       <button class="nav-btn group-written" onclick="showTab('reading', this)">📖 Reading</button>
       <button class="nav-btn group-written" onclick="showTab('writing', this)">✍️ Writing</button>
+      <button class="nav-btn group-written" onclick="showTab('practica', this)">🖊️ Práctica</button>
       <div class="nav-sep"></div>
       <button class="nav-btn group-oral" onclick="showTab('speaking', this)">🗣️ Speaking</button>
       <div class="nav-sep"></div>
@@ -829,8 +865,8 @@ body {
           <p class="acc-p">Escucharás <strong>5 conversaciones cortas</strong>. Para cada una, responderás una o dos preguntas específicas <strong>en oraciones completas</strong>.</p>
           <div class="warning-box">
             <div class="tip-label">⚠️ Error frecuente</div>
-            Responder solo con una palabra o frase: <span class="ex-bad">"On the bus."</span><br>
-            La instrucción pide oraciones completas: <span class="ex-good">"Kate used to be bullied on the school bus."</span>
+            Responder solo con una palabra o frase: <span class="ex-bad">"In the park."</span><br>
+            La instrucción pide oraciones completas: <span class="ex-good">"Mark used to play football in the park after school."</span>
           </div>
           <ol class="steps-list">
             <li>Lee la pregunta antes de escuchar — identifica qué tipo de información necesitas (¿quién? ¿qué? ¿dónde? ¿por qué?).</li>
@@ -840,8 +876,8 @@ body {
           <div class="example-box">
             <div class="ex-label">✏️ Estructura de respuesta</div>
             <div class="ex-line">Pregunta: <em>What did someone use to hate about school? Why?</em></div>
-            <div class="ex-line ex-bad">❌ "Homework" (incompleto)</div>
-            <div class="ex-line ex-good">✓ "She used to hate the homework after school because there was too much of it and it was hard to finish."</div>
+            <div class="ex-line ex-bad">❌ "Gym class" (incompleto)</div>
+            <div class="ex-line ex-good">✓ "He used to hate gym class because they had to run for a long time and he wasn't very sporty."</div>
             <div class="ex-line ex-note">Sujeto + verbo + complemento. Si la pregunta pide "why", incluye la razón con <em>because</em>.</div>
           </div>
           <p class="acc-p"><strong>Preguntas de 2 puntos:</strong> necesitas dar <strong>dos ideas completas</strong>. Usa dos oraciones o una oración con conector.</p>
@@ -900,7 +936,7 @@ body {
             <div class="ex-label">✏️ Respuestas bien formadas</div>
             <div class="ex-line">Pregunta: <em>Has the book been successful? Why?</em></div>
             <div class="ex-line ex-bad">❌ "Yes" (incompleto — no da la razón)</div>
-            <div class="ex-line ex-good">✓ "Yes, it has been very successful because it tells stories about friendship and adventure, and it has sold many copies."</div>
+            <div class="ex-line ex-good">✓ "Yes, it has been very successful because it won several awards and has attracted readers of all ages around the world."</div>
           </div>
           <div class="tip-box">
             <div class="tip-label">💡 Tip</div>
@@ -931,7 +967,7 @@ body {
             <div class="ex-label">✏️ Ejemplo</div>
             <div class="ex-line">Enunciado: <em>"He bought tickets for a concert."</em></div>
             <div class="ex-line ex-bad">❌ Marcar F sin escribir nada más</div>
-            <div class="ex-line ex-good">✓ Marcar F + escribir: "He bought tickets for the ballet (but it turned out to be an opera)."</div>
+            <div class="ex-line ex-good">✓ Marcar F + escribir: "He traveled to Japan for two weeks, not for a month."</div>
             <div class="ex-line ex-note">Una oración clara con la información correcta es suficiente.</div>
           </div>
         </div>
@@ -1279,6 +1315,125 @@ body {
       </div>
     </div>
 
+    <!-- ══════════ PRÁCTICA ══════════ -->
+    <div id="tab-practica" class="tab-panel">
+      <div class="section-title">
+        <div class="section-icon icon-writing">🖊️</div>
+        <h2>Práctica de Writing</h2>
+        <div class="pts-badge">con retroalimentación IA</div>
+      </div>
+
+      <div class="intro-box">
+        Escribe tu texto aquí, luego copia el prompt para <strong>Gemini</strong> y recibe retroalimentación según la rúbrica oficial del curso. Esta es una práctica — no es el examen real.
+      </div>
+
+      <!-- PASO 1: TAREA -->
+      <div class="step-card">
+        <div class="step-hd s1">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">Lee la tarea con atención</div>
+            <div class="step-sub">Escribe sobre tu DuocUC ideal — mínimo 80 palabras</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="task-stimulus">
+            <p class="task-intro">Write about your ideal DuocUC. Write a text of at least 80 words. Use grammar and vocabulary seen in class.</p>
+            <p class="task-intro">Consider the following ideas:</p>
+            <ul>
+              <li>
+                The facilities and spaces available to students.
+                <span class="task-grammar">might / would</span>
+                <span class="task-example">e.g. "My ideal DuocUC would have a bigger library and might also have outdoor study spaces."</span>
+              </li>
+              <li>
+                The class size and teaching style.
+                <span class="task-grammar">might / would</span>
+                <span class="task-example">e.g. "Classes would be smaller, so students might feel more comfortable participating."</span>
+              </li>
+              <li>
+                Technology and resources in the classroom.
+                <span class="task-grammar">might / would</span>
+                <span class="task-example">e.g. "Every classroom would have the latest technology, and teachers might use more interactive tools."</span>
+              </li>
+              <li>
+                One new service or activity you would add for students and why.
+                <span class="task-grammar">would + because</span>
+                <span class="task-example">e.g. "I would add a mental health service because many students feel stressed."</span>
+              </li>
+              <li>
+                Include advice on ways to help students succeed at DuocUC.
+                <span class="task-grammar">should / shouldn't + connectors</span>
+                <span class="task-example">e.g. "Students should attend all classes. In addition, they shouldn't leave assignments for the last minute."</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 2: ESCRIBIR -->
+      <div class="step-card">
+        <div class="step-hd s2">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">Escribe tu texto aquí</div>
+            <div class="step-sub">El contador se actualiza en tiempo real</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="wcount-bar">
+            <span>Palabras: <strong id="wCount">0 palabras</strong></span>
+            <span style="color:var(--muted)">Mínimo: <strong>80 palabras</strong></span>
+          </div>
+          <textarea id="practiceArea" placeholder="Start writing about your ideal DuocUC here. Remember to use would / might, should / shouldn't, and connectors like in addition, however, because…" oninput="practiceWordCount()"></textarea>
+          <button class="eval-btn" id="evalBtn" onclick="copiarParaGemini()" disabled style="opacity:0.45;cursor:not-allowed;">📋 Copiar prompt para Gemini</button>
+
+          <!-- GEMINI MODAL -->
+          <div id="geminiModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+            <div style="background:white;border-radius:18px;padding:32px;max-width:440px;width:100%;box-shadow:0 24px 60px rgba(0,0,0,0.25);text-align:center;">
+              <div style="font-size:2.5em;margin-bottom:12px;">✅</div>
+              <div style="font-family:'DM Serif Display',serif;font-size:1.35em;color:#1e293b;margin-bottom:10px;">¡Tu texto fue copiado!</div>
+              <p style="font-size:0.88em;color:#64748b;line-height:1.65;margin-bottom:18px;">
+                Abre Gemini y pega el prompt completo. Gemini evaluará tu Writing según la rúbrica oficial del curso y te dará retroalimentación detallada.
+              </p>
+              <div style="background:#f1f5f9;border-radius:10px;padding:12px 16px;margin-bottom:20px;font-size:0.85em;color:#475569;">
+                Pega con <kbd style="background:#e2e8f0;border:1px solid #cbd5e1;border-radius:5px;padding:3px 8px;font-family:monospace;font-weight:700;">Ctrl+V</kbd>
+                &nbsp;/&nbsp;
+                <kbd style="background:#e2e8f0;border:1px solid #cbd5e1;border-radius:5px;padding:3px 8px;font-family:monospace;font-weight:700;">Cmd+V</kbd>
+                en Gemini
+              </div>
+              <div style="display:flex;gap:10px;justify-content:center;">
+                <button onclick="cerrarModal()" style="padding:10px 20px;border:1px solid #e2e8f0;border-radius:9px;background:white;color:#64748b;font-family:'DM Sans',sans-serif;font-size:0.88em;cursor:pointer;">Cancelar</button>
+                <button onclick="irAGemini()" style="padding:10px 22px;border:none;border-radius:9px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:white;font-family:'DM Sans',sans-serif;font-size:0.88em;font-weight:700;cursor:pointer;">Ir a Gemini →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 3: CHECKLIST ANTES DE ENVIAR -->
+      <div class="step-card">
+        <div class="step-hd s3">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">Revisa antes de enviar a Gemini</div>
+            <div class="step-sub">Marca cada ítem cuando estés seguro/a</div>
+          </div>
+        </div>
+        <div class="step-body">
+          <div class="pcheck-grid">
+            <label class="pcheck-item" onclick="ptoggleCheck(this)"><input type="checkbox"><span class="pci-text">✅ Mi texto tiene al menos <strong>80 palabras</strong>.</span></label>
+            <label class="pcheck-item" onclick="ptoggleCheck(this)"><input type="checkbox"><span class="pci-text">✅ Usé <strong>would / might</strong> para describir el DuocUC ideal.</span></label>
+            <label class="pcheck-item" onclick="ptoggleCheck(this)"><input type="checkbox"><span class="pci-text">✅ Incluí al menos un consejo con <strong>should / shouldn't</strong>.</span></label>
+            <label class="pcheck-item" onclick="ptoggleCheck(this)"><input type="checkbox"><span class="pci-text">✅ Usé al menos <strong>3 conectores</strong> distintos (however, in addition, because…).</span></label>
+            <label class="pcheck-item" onclick="ptoggleCheck(this)"><input type="checkbox"><span class="pci-text">✅ Cada idea está <strong>desarrollada</strong> — no es solo una lista de palabras.</span></label>
+            <label class="pcheck-item" onclick="ptoggleCheck(this)"><input type="checkbox"><span class="pci-text">✅ Revisé el <strong>spelling</strong> de palabras que me generan dudas.</span></label>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tab-practica -->
+
     <!-- ══════════ GRAMÁTICA ══════════ -->
     <div id="tab-grammar" class="tab-panel">
       <div class="section-title">
@@ -1570,6 +1725,137 @@ function loadChecklist() {
     updateProgress();
   } catch(e) {}
 }
+
+// ── PRÁCTICA ──
+function practiceWordCount() {
+  var txt = document.getElementById('practiceArea').value.trim();
+  var n = txt === '' ? 0 : txt.split(/\s+/).filter(function(w){ return w.length > 0; }).length;
+  var el  = document.getElementById('wCount');
+  var ta  = document.getElementById('practiceArea');
+  var btn = document.getElementById('evalBtn');
+  el.textContent = n + (n === 1 ? ' palabra' : ' palabras');
+  if (n >= 80)      { el.className = 'wok';  ta.className = 'wok'; }
+  else if (n >= 40) { el.className = 'wwarn'; ta.className = 'wwarn'; }
+  else              { el.className = '';      ta.className = ''; }
+  btn.disabled = n < 1;
+  btn.style.opacity = n < 1 ? '0.45' : '1';
+  btn.style.cursor  = n < 1 ? 'not-allowed' : 'pointer';
+}
+
+function ptoggleCheck(label) {
+  var cb = label.querySelector('input[type="checkbox"]');
+  cb.checked = !cb.checked;
+  label.classList.toggle('pchecked', cb.checked);
+}
+
+function buildGeminiPrompt() {
+  var studentText = document.getElementById('practiceArea').value.trim();
+  var wordCount   = studentText.split(/\s+/).filter(function(w){ return w.length > 0; }).length;
+
+  return 'Eres un profesor experto en inglés como lengua extranjera para nivel B1 (CEFR).\n'
+    + 'Un estudiante de nivel B1 ha escrito el siguiente texto en inglés.\n\n'
+    + '---\n'
+    + 'NÚMERO DE PALABRAS: ' + wordCount + '\n\n'
+    + 'TEXTO DEL ESTUDIANTE:\n'
+    + '"' + studentText + '"\n'
+    + '---\n\n'
+    + 'TAREA:\n'
+    + 'El estudiante debía escribir sobre su DuocUC ideal (mínimo 80 palabras), considerando:\n'
+    + '- Las instalaciones y espacios disponibles para estudiantes (might / would)\n'
+    + '- El tamaño de clases y el estilo de enseñanza (might / would)\n'
+    + '- Tecnología y recursos en el aula (might / would)\n'
+    + '- Un servicio o actividad nueva que agregaría y por qué (would + because)\n'
+    + '- Consejos para que los estudiantes tengan éxito (should / shouldn\'t + conectores)\n\n'
+    + 'Estructuras gramaticales requeridas:\n'
+    + '- Modales: would y might para situaciones ideales/hipotéticas\n'
+    + '- should / shouldn\'t para dar consejos\n'
+    + '- Conectores de discurso: however, in addition, furthermore, because, as a result, etc.\n'
+    + '- Comparativos: bigger, more interactive, better than, etc.\n'
+    + '- Mínimo 80 palabras\n'
+    + '- Ideas desarrolladas con explicación o ejemplo — no solo lista\n\n'
+    + 'IMPORTANTE PARA LA EVALUACIÓN:\n'
+    + 'Este es nivel B1. Los estudiantes hispanohablantes de B1 cometen errores típicos como:\n'
+    + '- Usar "would" en la cláusula con "if" en condicionales (if I would have…)\n'
+    + '- Omitir la "s" en tercera persona del presente simple\n'
+    + '- Confundir "make" y "do"\n'
+    + '- Mezclar tiempos verbales innecesariamente\n'
+    + '- Usar conectores básicos (and, but, also) en lugar de conectores B1\n'
+    + 'Estos errores son esperados y deben evaluarse con criterio apropiado al nivel.\n\n'
+    + 'RÚBRICA OFICIAL:\n\n'
+    + '1. COHERENCIA Y EXTENSIÓN (máx. 4 pts)\n'
+    + '   Totalmente Logrado (4 pts): ≥80 palabras, ≥8 ideas completas y coherentes con el estímulo.\n'
+    + '   Logrado (3,2 pts): 60–79 palabras, ≥6 ideas completas.\n'
+    + '   Parcialmente Logrado (2,4 pts): 40–59 palabras, ≥5 ideas completas.\n'
+    + '   Insuficientemente Logrado (1,2 pts): 20–40 palabras, 3–4 ideas coherentes.\n'
+    + '   No Logrado (0 pts): menos de 20 palabras o sin coherencia.\n\n'
+    + '2. VOCABULARIO (máx. 3 pts)\n'
+    + '   Totalmente Logrado (3 pts): ≥8 palabras del nivel usadas correctamente en contexto.\n'
+    + '   Logrado (2,4 pts): ≥6 palabras.\n'
+    + '   Parcialmente Logrado (1,8 pts): ≥4 palabras, algunas fuera de contexto.\n'
+    + '   Insuficientemente Logrado (0,9 pts): 2 o menos palabras del nivel.\n'
+    + '   No Logrado (0 pts): sin vocabulario del nivel o uso incorrecto.\n\n'
+    + '3. GRAMÁTICA (máx. 3 pts)\n'
+    + '   Totalmente Logrado (3 pts): sin errores.\n'
+    + '   Logrado (2,4 pts): 2–3 errores menores que no afectan la comprensión.\n'
+    + '   Parcialmente Logrado (1,8 pts): 4–5 errores, texto sigue siendo comprensible.\n'
+    + '   Insuficientemente Logrado (0,9 pts): más de 6 errores que limitan la claridad.\n'
+    + '   No Logrado (0 pts): 7 o más errores que impiden la comprensión.\n\n'
+    + '4. ORTOGRAFÍA (máx. 2 pts)\n'
+    + '   Totalmente Logrado (2 pts): 1–2 errores menores sin afectar la comprensión.\n'
+    + '   Logrado (1,6 pts): 3–4 errores sin afectar el mensaje general.\n'
+    + '   Parcialmente Logrado (1,2 pts): 5–6 errores que afectan parcialmente.\n'
+    + '   Insuficientemente Logrado (0,6 pts): 7–9 errores que afectan la idea.\n'
+    + '   No Logrado (0 pts): 10 o más errores.\n\n'
+    + 'POR FAVOR ENTREGA (todo en español, excepto ejemplos en inglés):\n\n'
+    + '⚠️ ADVERTENCIA DE AUTENTICIDAD (primero, siempre):\n'
+    + 'Analiza señales de uso de IA o traductor en un texto B1: vocabulario avanzado inesperado para el nivel, ausencia total de errores típicos de B1, estructuras muy complejas, fluidez inusual.\n'
+    + '🚨 si detectas señales claras / ✅ si parece auténtico + justificación breve.\n\n'
+    + '1. ✅ RETROALIMENTACIÓN GENERAL (2–3 oraciones motivadoras pero honestas)\n'
+    + '2. 📋 EVALUACIÓN POR CRITERIO con puntaje y justificación breve para cada uno de los 4 criterios\n'
+    + '3. ❌ ERRORES ESPECÍFICOS (máximo 4, priorizando los más importantes):\n'
+    + '   Error: [fragmento incorrecto] → Corrección: [forma correcta] — Explicación: [breve en español]\n'
+    + '4. ✨ SUGERENCIAS DE MEJORA (2–3 concretas y aplicables al nivel B1)\n'
+    + '5. 💬 FRASE DE CIERRE motivadora adaptada al nivel B1\n\n'
+    + '6. 📊 RESUMEN DE PUNTAJE (obligatorio, al final, en formato tabla):\n'
+    + '| Criterio | Puntaje obtenido | Máximo |\n'
+    + '|---|---|---|\n'
+    + '| Coherencia y Extensión | X pts | 4 pts |\n'
+    + '| Vocabulario | X pts | 3 pts |\n'
+    + '| Gramática | X pts | 3 pts |\n'
+    + '| Ortografía | X pts | 2 pts |\n'
+    + '| **TOTAL** | **X pts** | **12 pts** |\n\n'
+    + 'Luego del total en puntos, indica la nota equivalente en escala chilena (1,0 a 7,0) usando la fórmula de doble tramo donde 60% = nota 4,0:\n'
+    + '- Si puntaje ≤ 7,2 (60% de 12): Nota = 1 + (puntaje / 7,2) × 3\n'
+    + '- Si puntaje > 7,2: Nota = 4 + ((puntaje - 7,2) / 4,8) × 3\n'
+    + 'Presenta el resultado así: 🏅 Nota estimada Writing: X,X / 7,0\n'
+    + 'Acompaña la nota con una línea breve que explique qué significa (ej. "Aprobado con buen desempeño" / "Bajo el mínimo de aprobación — foco en extensión y vocabulario").';
+}
+
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+function copiarParaGemini() {
+  var prompt = buildGeminiPrompt();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(prompt).catch(function(){ fallbackCopy(prompt); });
+  } else {
+    fallbackCopy(prompt);
+  }
+  mostrarModal();
+}
+
+function mostrarModal() { document.getElementById('geminiModal').style.display = 'flex'; }
+function cerrarModal()  { document.getElementById('geminiModal').style.display = 'none'; }
+function irAGemini()    { cerrarModal(); window.open('https://gemini.google.com', '_blank'); }
 
 // ── INIT ──
 calcNota();
